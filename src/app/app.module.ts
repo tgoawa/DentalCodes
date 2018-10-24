@@ -6,11 +6,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
+import { DentalPracticeListComponent } from './dental-practice-list/dental-practice-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    DentalPracticeListComponent
   ],
   imports: [
     BrowserModule,
