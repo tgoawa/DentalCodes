@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class YearService {
-  year: number[] = [2018];
+  years: number[] = [2018];
   constructor() { }
 }

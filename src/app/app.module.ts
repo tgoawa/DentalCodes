@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { DentalPracticeListComponent } from './dental-practice-list/dental-practice-list.component';
 import { HeaderComponent } from './header/header.component';
+import { DentalPracticeTableComponent } from './dental-practice-list/dental-practice-table/dental-practice-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     DentalPracticeListComponent,
-    HeaderComponent
+    HeaderComponent,
+    DentalPracticeTableComponent
   ],
   imports: [
     BrowserModule,
