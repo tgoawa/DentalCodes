@@ -1,5 +1,6 @@
 import { Component, OnChanges, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { PracticeList } from 'src/app/models/practice-list.model';
 
 @Component({
   selector: 'app-dental-practice-table',
@@ -8,11 +9,13 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DentalPracticeTableComponent implements OnChanges {
-  @Input() dataSource: any[];
+  @Input() dataSource: PracticeList[];
   @Input() title: string;
   practiceList: MatTableDataSource<any>;
   displayedColumns = [
-    'PracticeName'
+    'PracticeName',
+    'CodeDifference',
+    'IsSchenckClient'
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

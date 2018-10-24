@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { PracticeList } from '../models/practice-list.model';
 
 @Component({
   selector: 'app-dental-practice-list',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DentalPracticeListComponent implements OnInit {
-  @Input() dataSource: any[];
+  @Input() dataSource: PracticeList[];
   @Input() title: string;
 
   constructor() { }

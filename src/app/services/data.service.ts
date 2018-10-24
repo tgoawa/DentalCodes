@@ -14,7 +14,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getPracticeAverages(surveyYear: number) {
-    return this.http.get<PracticeList>(api + 'GetPracticeAverages/' + surveyYear)
+    return this.http.get<PracticeList[]>(api + 'GetPracticeAverages/' + surveyYear)
     .pipe(
       retry(3), // retry failed request up to 3 times
       catchError(this.handleError)
