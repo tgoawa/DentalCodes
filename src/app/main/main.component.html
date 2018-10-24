@@ -3,10 +3,18 @@
 </div>
 <div>
   <mat-form-field>
-    <mat-select placeholder="Survey Year">
+    <mat-select placeholder="Survey Year" (selectionChange)="onYearSelected($event)">
       <mat-option *ngFor="let year of yearList" [value]="year">
         {{year}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
+<div *ngIf="isYearSelected">
+  <app-dental-practice-list [dataSource]="practiceAveragesList" *ngIf="practiceAveragesList; else loading"></app-dental-practice-list>
+</div>
+<ng-template #loading>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

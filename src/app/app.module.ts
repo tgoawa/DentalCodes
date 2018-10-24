@@ -4,7 +4,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { MatPaginatorModule, MatTableModule, MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
+import {
+  MatPaginatorModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -18,7 +26,7 @@ import { DentalPracticeTableComponent } from './dental-practice-list/dental-prac
     MainComponent,
     DentalPracticeListComponent,
     HeaderComponent,
-    DentalPracticeTableComponent
+    DentalPracticeTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,11 +35,13 @@ import { DentalPracticeTableComponent } from './dental-practice-list/dental-prac
     HttpClientModule,
     MatFormFieldModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
+    MatSortModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
