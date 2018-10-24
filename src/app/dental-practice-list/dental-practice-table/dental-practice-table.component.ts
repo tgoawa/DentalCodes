@@ -12,7 +12,7 @@ export class DentalPracticeTableComponent implements OnChanges {
   @Input() title: string;
   practiceList: MatTableDataSource<any>;
   displayedColumns = [
-
+    'PracticeName'
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

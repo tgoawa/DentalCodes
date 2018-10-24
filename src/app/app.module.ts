@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { MatToolbarModule } from '@angular/material';
+import { MatPaginatorModule, MatTableModule, MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -25,6 +25,8 @@ import { DentalPracticeTableComponent } from './dental-practice-list/dental-prac
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatPaginatorModule,
+    MatTableModule,
     MatToolbarModule
   ],
   providers: [],
