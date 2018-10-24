@@ -31,4 +31,8 @@ export class DentalPracticeTableComponent implements OnChanges {
     this.practiceList.paginator = this.paginator;
   }
 
+  onPracticeSelected(practiceId: number) {
+    //
+  }
+
 }

@@ -12,6 +12,7 @@ import {
   MatSelectModule,
   MatProgressSpinnerModule,
   MatSortModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { DentalPracticeTableComponent } from './dental-practice-list/dental-prac
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,

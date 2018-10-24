@@ -3,7 +3,7 @@
 
     <ng-container matColumnDef="PracticeName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.PracticeName}} </td>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="onPracticeSelected(element.PracticeId)">{{element.PracticeName}}</button> </td>
     </ng-container>
 
     <ng-container matColumnDef="CodeDifference">
