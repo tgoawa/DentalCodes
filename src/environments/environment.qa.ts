@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  envApi: 'http://webservicesprod:3008/'
+  envApi: 'http://webservicesqa:2008/'
 };
