@@ -20,6 +20,7 @@ import { MainComponent } from './main/main.component';
 import { DentalPracticeListComponent } from './dental-practice-list/dental-practice-list.component';
 import { HeaderComponent } from './header/header.component';
 import { DentalPracticeTableComponent } from './dental-practice-list/dental-practice-table/dental-practice-table.component';
+import { PracticeCodesTableComponent } from './practice-codes-table/practice-codes-table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DentalPracticeTableComponent } from './dental-practice-list/dental-prac
     DentalPracticeListComponent,
     HeaderComponent,
     DentalPracticeTableComponent,
+    PracticeCodesTableComponent,
   ],
   imports: [
     BrowserModule,

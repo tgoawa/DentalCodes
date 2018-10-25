@@ -13,7 +13,7 @@ export class DentalPracticeTableComponent implements OnChanges {
   @Input() dataSource: PracticeList[];
   @Input() title: string;
   selectedYear: number;
-  practiceList: MatTableDataSource<any>;
+  practiceList: MatTableDataSource<PracticeList[]>;
   displayedColumns = [
     'PracticeName',
     'CodeDifference',
