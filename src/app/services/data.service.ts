@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { PracticeList } from '../models/practice-list.model';
+import { PracticeList, PracticeRegionCode } from '../models/practice-list.model';
 
 const api = environment.envApi;
 @Injectable({
@@ -21,8 +21,12 @@ export class DataService {
     );
   }
 
-  getPracticeDetails(surveyYear: number, practiceId: number) {
-    //
+  getPracticeCodesRegions(surveyYear: number, practiceId: number) {
+    return this.http.get<PracticeRegionCode>(api + 'GetPracticeCodesRegions/' + surveyYear + '/' + practiceId)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
