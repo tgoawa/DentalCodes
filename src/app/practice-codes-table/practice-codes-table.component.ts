@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class PracticeCodesTableComponent implements OnChanges {
   @Input() dataSource: PracticeRegionCodeData[];
-  practiceRegionData: MatTableDataSource<PracticeRegionCodeData[]>;
+  practiceRegionData: MatTableDataSource<PracticeRegionCodeData>;
   displayedColumns = [
     'DentalCode',
     'FirstYearEnteredValue',
@@ -24,6 +24,7 @@ export class PracticeCodesTableComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
+    this.practiceRegionData = new MatTableDataSource<PracticeRegionCodeData>(this.dataSource);
   }
 
 }
