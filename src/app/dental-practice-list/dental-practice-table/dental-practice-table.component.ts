@@ -1,7 +1,6 @@
-import { Component, OnChanges, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
+import { Component, OnChanges, ChangeDetectionStrategy, Input, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { PracticeList } from 'src/app/models/practice-list.model';
-import { YearService } from 'src/app/services/year.service';
+import { PracticeList, PracticeInfo } from 'src/app/models/practice-list.model';
 
 @Component({
   selector: 'app-dental-practice-table',
@@ -12,8 +11,8 @@ import { YearService } from 'src/app/services/year.service';
 export class DentalPracticeTableComponent implements OnChanges {
   @Input() dataSource: PracticeList[];
   @Input() title: string;
-  selectedYear: number;
-  practiceList: MatTableDataSource<PracticeList[]>;
+  @Output() practiceInfo: EventEmitter<PracticeInfo> = new EventEmitter();
+  practiceList: MatTableDataSource<PracticeList>;
   displayedColumns = [
     'PracticeName',
     'CodeDifference',
@@ -22,17 +21,16 @@ export class DentalPracticeTableComponent implements OnChanges {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private yearService: YearService) { }
+  constructor() { }
 
   ngOnChanges() {
-    this.yearService.selectedYear$.subscribe(data => this.selectedYear = data);
-    this.practiceList = new MatTableDataSource<any>(this.dataSource);
+    this.practiceList = new MatTableDataSource<PracticeList>(this.dataSource);
     this.practiceList.sort = this.sort;
     this.practiceList.paginator = this.paginator;
   }
 
-  onPracticeSelected(practiceId: number) {
-    //
+  onPracticeSelected(practiceId: number, practiceName: string) {
+    this.practiceInfo.emit(new PracticeInfo(practiceId, practiceName));
   }
 
 }

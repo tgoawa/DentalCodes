@@ -1,1 +1,11 @@
-<app-dental-practice-table *ngIf="dataSource" [dataSource]="dataSource" fxFill></app-dental-practice-table>
+<div *ngIf="practiceList">
+  <app-dental-practice-table [dataSource]="practiceList" fxFill (practiceInfo)="onPracticeSelected($event)" *ngIf="showPracticeList"></app-dental-practice-table>
+</div>
+<div *ngIf="showCodesTable">
+  <app-practice-codes-table [dataSource]="practiceRegionCodesData" fxFill></app-practice-codes-table>
+  <ng-template #loading>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

@@ -13,13 +13,23 @@ export interface PracticeDetail {
   SurveyYear: number;
 }
 
+export class PracticeInfo {
+  PracticeId: number;
+  PracticeName: string;
+
+  constructor(practiceId: number, practiceName: string) {
+   this.PracticeId = practiceId;
+   this.PracticeName = practiceName;
+  }
+}
+
 export interface PracticeRegionCode {
   FirstYear: PracticeDetail[];
   SecondYear: PracticeDetail[];
   ThirdYear: PracticeDetail[];
 }
 
-export class PracticeRegionCodeData {
+export class PracticeRegionTableDTO {
   PracticeName: string;
   DentalCodeId: number;
   DentalCode: string;
