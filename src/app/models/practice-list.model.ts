@@ -30,7 +30,6 @@ export interface PracticeRegionCode {
 }
 
 export class PracticeRegionTableDTO {
-  PracticeName: string;
   DentalCodeId: number;
   DentalCode: string;
   FirstYearEnteredValue: number;
@@ -45,7 +44,6 @@ export class PracticeRegionTableDTO {
   EnteredValueDifference: number;
 
   constructor(
-    practiceName: string,
     dentalCodeId: number,
     dentalCode: string,
     firstYearEnteredValue: number,
@@ -58,7 +56,6 @@ export class PracticeRegionTableDTO {
     thirdYearRegionAverage: number,
     thirdSurveyYear: number
   ) {
-    this.PracticeName = practiceName;
     this.DentalCodeId = dentalCodeId;
     this.DentalCode = dentalCode;
     this.FirstYearEnteredValue = firstYearEnteredValue;

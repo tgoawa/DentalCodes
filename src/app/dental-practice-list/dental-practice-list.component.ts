@@ -13,10 +13,12 @@ import { isNullOrUndefined } from 'util';
 export class DentalPracticeListComponent implements OnChanges {
   @Input() practiceList: PracticeList[];
   @Input() title: string;
+  practiceName: string;
   showPracticeList = true;
   showCodesTable = false;
   selectedYear: number;
-  practiceRegionCodesData: PracticeRegionTableDTO[];
+  practiceRegionCode: PracticeRegionCode;
+  practiceRegionTableDTO: PracticeRegionTableDTO[];
 
   constructor(private yearService: YearService, private dataService: DataService) { }
 
@@ -24,42 +26,41 @@ export class DentalPracticeListComponent implements OnChanges {
     this.yearService.selectedYear$.subscribe(data => this.selectedYear = data);
   }
 
-  onPracticeSelected(practiceInfo: PracticeInfo) {
-    this.showPracticeList = false;
-    this.getPracticeCodesRegions(this.selectedYear, practiceInfo);
-  }
-
-  private createPracticeRegionTableDTO(practiceRegionCodes: PracticeRegionCode, practiceName: string) {
-    const tempArray = [];
-    if (!isNullOrUndefined(practiceRegionCodes)) {
-      for (let index = 0; index < practiceRegionCodes.FirstYear.length; index++) {
-        tempArray.push(new PracticeRegionTableDTO(practiceName,
-          practiceRegionCodes.FirstYear[index].DentalCodeId,
-          practiceRegionCodes.FirstYear[index].DentalCode,
-          practiceRegionCodes.FirstYear[index].EnteredValue,
-          practiceRegionCodes.FirstYear[index].RegionAverageForCode,
-          practiceRegionCodes.FirstYear[index].SurveyYear,
-          practiceRegionCodes.SecondYear[index].EnteredValue,
-          practiceRegionCodes.SecondYear[index].RegionAverageForCode,
-          practiceRegionCodes.SecondYear[index].SurveyYear,
-          practiceRegionCodes.ThirdYear[index].EnteredValue,
-          practiceRegionCodes.ThirdYear[index].RegionAverageForCode,
-          practiceRegionCodes.ThirdYear[index].SurveyYear));
-      }
-      return tempArray;
-    } else {
-      // No data returned from service display message to user
-      return;
-    }
+  onPracticeSelected(event: PracticeInfo) {
+    this.getPracticeCodesRegions(this.selectedYear, event);
   }
 
   private getPracticeCodesRegions(selectedYear: number, practiceInfo: PracticeInfo) {
     this.showCodesTable = true;
+    this.practiceName = practiceInfo.PracticeName;
     this.dataService.getPracticeCodesRegions(selectedYear, practiceInfo.PracticeId)
     .subscribe((data: PracticeRegionCode) => {
-      this.practiceRegionCodesData = this.createPracticeRegionTableDTO(data, practiceInfo.PracticeName);
-      console.log(this.practiceRegionCodesData);
+      this.practiceRegionCode = data;
+      this.createPracticeRegionTableDTO(this.practiceRegionCode);
+      console.log(this.practiceRegionTableDTO);
     }, error => console.error(error));
   }
 
+  private createPracticeRegionTableDTO(practiceRegionCodes: PracticeRegionCode) {
+    this.practiceRegionTableDTO = [];
+    if (!isNullOrUndefined(practiceRegionCodes)) {
+      for (let index = 0; index < practiceRegionCodes.FirstYear.length; index++) {
+        this.practiceRegionTableDTO.push(
+          new PracticeRegionTableDTO(
+            practiceRegionCodes.FirstYear[index].DentalCodeId,
+            practiceRegionCodes.FirstYear[index].DentalCode,
+            practiceRegionCodes.FirstYear[index].EnteredValue,
+            practiceRegionCodes.FirstYear[index].RegionAverageForCode,
+            practiceRegionCodes.FirstYear[index].SurveyYear,
+            practiceRegionCodes.SecondYear[index].EnteredValue,
+            practiceRegionCodes.SecondYear[index].RegionAverageForCode,
+            practiceRegionCodes.SecondYear[index].SurveyYear,
+            practiceRegionCodes.ThirdYear[index].EnteredValue,
+            practiceRegionCodes.ThirdYear[index].RegionAverageForCode,
+            practiceRegionCodes.ThirdYear[index].SurveyYear
+          )
+        );
+      }
+    }
+  }
 }
