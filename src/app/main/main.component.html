@@ -11,7 +11,16 @@
   </mat-form-field>
 </div>
 <div *ngIf="isYearSelected">
-  <app-dental-practice-list [practiceList]="practiceAveragesList" *ngIf="practiceAveragesList; else loading"></app-dental-practice-list>
+  <app-dental-practice-list [practiceList]="practiceAveragesList" *ngIf="practiceAveragesList; else loading"
+    (practiceInfo)="onPracticeSelected($event)"></app-dental-practice-list>
+</div>
+<div *ngIf="showTable">
+  <app-practice-codes-table [title]="practiceName" fxFill *ngIf="practiceRegionCode; loadingCodes"></app-practice-codes-table>
+  <ng-template #loadingCodes>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
 </div>
 <ng-template #loading>
   <div fxLayout="column" fxLayoutAlign="center center">
