@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   practiceRegionTableDTO: PracticeRegionTableDTO[];
   practiceName: string;
   isYearSelected: boolean;
+  showPracticeShowList: boolean;
   showTable: boolean;
   constructor(private dataService: DataService, private yearService: YearService) { }
 
@@ -39,10 +40,12 @@ export class MainComponent implements OnInit {
   onPracticeSelected(event: PracticeInfo) {
     this.practiceName = event.PracticeName;
     this.showTable = true;
+    this.showPracticeShowList = false;
     this.getPracticeCodesRegions(this.selectedYear, event.PracticeId);
   }
 
   onYearSelected(event) {
+    this.showPracticeShowList = true;
     this.setYear(event.value);
     this.getPracticeAverages(this.selectedYear);
   }
@@ -52,12 +55,10 @@ export class MainComponent implements OnInit {
   }
 
   private getPracticeCodesRegions(selectedYear: number, practiceId: number) {
-    // this.showCodesTable = true;
-    // this.practiceName = practiceInfo.PracticeName;
     this.dataService.getPracticeCodesRegions(selectedYear, practiceId)
     .subscribe((data: PracticeRegionCode) => {
       this.practiceRegionCode = data;
-      // this.createPracticeRegionTableDTO(this.practiceRegionCode);
+      console.log(this.practiceRegionCode);
     }, error => console.error(error));
   }
 

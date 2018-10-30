@@ -1,25 +1,25 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
 import { PracticeRegionCode, PracticeRegionTableDTO } from '../models/practice-list.model';
-import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-practice-codes',
   templateUrl: './practice-codes.component.html',
-  styleUrls: ['./practice-codes.component.css']
+  styleUrls: ['./practice-codes.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PracticeCodesComponent implements OnChanges {
-  @Input() practiceRegionCode: PracticeRegionCode;
+  @Input() dataSource: PracticeRegionCode;
   @Input() title: string;
   practiceRegionTableDTO: any[];
   constructor() { }
 
   ngOnChanges() {
-    this.createPracticeRegionTableDTO(this.practiceRegionCode);
+    this.createPracticeRegionTableDTO(this.dataSource);
   }
 
    private createPracticeRegionTableDTO(practiceRegionCodes: PracticeRegionCode) {
     this.practiceRegionTableDTO = [];
-    if (!isNullOrUndefined(practiceRegionCodes)) {
+    if (practiceRegionCodes.FirstYear.length > 0) {
       for (let index = 0; index < practiceRegionCodes.FirstYear.length; index++) {
         this.practiceRegionTableDTO.push(
           new PracticeRegionTableDTO(
