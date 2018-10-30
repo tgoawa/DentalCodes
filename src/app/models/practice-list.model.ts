@@ -68,6 +68,6 @@ export class PracticeRegionTableDTO {
     this.ThirdYearEnteredValue = thirdYearEnteredValue;
     this.ThirdYearRegionAverage = thirdYearRegionAverage;
     this.ThirdSurveyYear = thirdSurveyYear;
-    this.EnteredValueDifference = firstYearEnteredValue - thirdYearEnteredValue;
+    this.EnteredValueDifference = firstYearEnteredValue - firstYearRegionAverage;
   }
 }

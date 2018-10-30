@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { PracticeRegionTableDTO } from 'src/app/models/practice-list.model';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
@@ -18,20 +18,21 @@ export class PracticeCodesTableComponent implements OnChanges {
     'DentalCode',
     'FirstYearEnteredValue',
     'FirstYearRegionAverage',
+    'EnteredValueDifference',
     'SecondYearEnteredValue',
     'SecondYearRegionAverage',
     'ThirdYearEnteredValue',
     'ThirdYearRegionAverage',
-    'EnteredValueDifference',
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  @ViewChild(MatSort) sort: MatSort;
   constructor() {}
 
   ngOnChanges() {
     this.practiceRegionData = new MatTableDataSource<PracticeRegionTableDTO>(this.dataSource);
     this.practiceRegionData.paginator = this.paginator;
+    this.practiceRegionData.sort = this.sort;
     this.firstYear = this.dataSource[0].FirstSurveyYear;
     this.secondYear = this.dataSource[0].SecondSurveyYear;
     this.thirdYear = this.dataSource[0].ThirdSurveyYear;
