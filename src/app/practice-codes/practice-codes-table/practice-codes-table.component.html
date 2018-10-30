@@ -1,5 +1,12 @@
 <div fxFlex="100">
-  <h2>{{title}}</h2>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+    <div>
+      <h2>{{title}}</h2>
+    </div>
+    <div>
+      <button mat-flat-button color="primary" (click)="exportToCSV()">Export to CSV</button>
+    </div>
+  </div>
   <table mat-table [dataSource]="practiceRegionData" matSort fxFill>
 
     <ng-container matColumnDef="DentalCode">
