@@ -44,6 +44,11 @@ export class MainComponent implements OnInit {
     this.getPracticeCodesRegions(this.selectedYear, event.PracticeId);
   }
 
+  onReturnToList() {
+    this.showPracticeShowList = true;
+    this.showTable = false;
+  }
+
   onYearSelected(event) {
     this.showPracticeShowList = true;
     this.setYear(event.value);
