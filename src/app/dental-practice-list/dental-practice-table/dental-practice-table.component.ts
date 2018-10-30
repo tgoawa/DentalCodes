@@ -16,7 +16,7 @@ export class DentalPracticeTableComponent implements OnChanges {
   displayedColumns = [
     'PracticeName',
     'CodeDifference',
-    'IsSchenckClient'
+    'ClientId'
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -3,6 +3,7 @@ export interface PracticeList {
   PracticeId: number;
   CodeDifference: number;
   IsSchenckClient: boolean;
+  ClientId: number;
 }
 
 export interface PracticeDetail {

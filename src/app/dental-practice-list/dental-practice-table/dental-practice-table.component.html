@@ -11,9 +11,9 @@
       <td mat-cell *matCellDef="let element"> {{element.CodeDifference}}% </td>
     </ng-container>
 
-    <ng-container matColumnDef="IsSchenckClient">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.PracticeId}} </td>
+    <ng-container matColumnDef="ClientId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Client Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.ClientId}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
