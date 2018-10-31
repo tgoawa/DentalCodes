@@ -1,9 +1,13 @@
 <div fxFlex="50">
+  <div>
+    <button mat-flat-button color="primary" (click)="exportToCSV()">Export to CSV</button>
+  </div>
   <table mat-table [dataSource]="practiceList" matSort fxFill>
 
     <ng-container matColumnDef="PracticeName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice Name </th>
-      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="onPracticeSelected(element.PracticeId, element.PracticeName)">{{element.PracticeName}}</button> </td>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="onPracticeSelected(element.PracticeId, element.PracticeName)">{{element.PracticeName}}</button>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="CodeDifference">
