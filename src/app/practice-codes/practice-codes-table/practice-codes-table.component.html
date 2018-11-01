@@ -11,7 +11,7 @@
 
     <ng-container matColumnDef="DentalCode">
       <th mat-header-cell *matHeaderCellDef> Dental Code </th>
-      <td mat-cell *matCellDef="let element">{{element.DentalCode}}</td>
+      <td mat-cell *matCellDef="let element"><span [matTooltip]="element.CodeDescription">{{element.DentalCode}}</span></td>
     </ng-container>
 
     <ng-container matColumnDef="FirstYearEnteredValue">

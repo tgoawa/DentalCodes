@@ -8,6 +8,7 @@ export interface PracticeList {
 export interface PracticeDetail {
   DentalCodeId: number;
   DentalCode: string;
+  CodeDescription: string;
   EnteredValue: number;
   RegionAverageForCode: number;
   SurveyYear: number;
@@ -32,6 +33,7 @@ export interface PracticeRegionCode {
 export class PracticeRegionTableDTO {
   DentalCodeId: number;
   DentalCode: string;
+  CodeDescription: string;
   FirstYearEnteredValue: number;
   FirstYearRegionAverage: number;
   FirstSurveyYear: number;
@@ -46,6 +48,7 @@ export class PracticeRegionTableDTO {
   constructor(
     dentalCodeId: number,
     dentalCode: string,
+    codeDescription: string,
     firstYearEnteredValue: number,
     firstYearRegionAverage: number,
     firstSurveyYear: number,
@@ -58,6 +61,7 @@ export class PracticeRegionTableDTO {
   ) {
     this.DentalCodeId = dentalCodeId;
     this.DentalCode = dentalCode;
+    this.CodeDescription = codeDescription;
     this.FirstYearEnteredValue = firstYearEnteredValue;
     this.FirstYearRegionAverage = firstYearRegionAverage;
     this.FirstSurveyYear = firstSurveyYear;

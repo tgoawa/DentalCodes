@@ -13,6 +13,7 @@ import {
   MatProgressSpinnerModule,
   MatSortModule,
   MatButtonModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { PracticeCodesComponent } from './practice-codes/practice-codes.componen
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

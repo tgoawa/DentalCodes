@@ -25,6 +25,7 @@ export class PracticeCodesComponent implements OnChanges {
           new PracticeRegionTableDTO(
             practiceRegionCodes.FirstYear[index].DentalCodeId,
             practiceRegionCodes.FirstYear[index].DentalCode,
+            practiceRegionCodes.FirstYear[index].CodeDescription,
             practiceRegionCodes.FirstYear[index].EnteredValue,
             practiceRegionCodes.FirstYear[index].RegionAverageForCode,
             practiceRegionCodes.FirstYear[index].SurveyYear,

@@ -24,6 +24,7 @@ export class PracticeCodesTableComponent implements OnChanges {
     'ThirdYearEnteredValue',
     'ThirdYearRegionAverage',
   ];
+  toolTipText: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -48,7 +49,7 @@ export class PracticeCodesTableComponent implements OnChanges {
       useBom: true,
       noDownload: false,
       // tslint:disable-next-line:max-line-length
-      headers: ['Dental Code Id', 'Dental Code', 'First Year Value', 'First Year Region Avg', 'First Survey Year', 'Second Year Value', 'Second Year Region Avg', 'Second Survey Year', 'Third Year Value', 'Third Year Region Avg', 'Third Survey Year', 'Difference']
+      headers: ['Dental Code Id', 'Dental Code', 'Code Description', 'First Year Value', 'First Year Region Avg', 'First Survey Year', 'Second Year Value', 'Second Year Region Avg', 'Second Survey Year', 'Third Year Value', 'Third Year Region Avg', 'Third Survey Year', 'Difference']
     };
     // tslint:disable-next-line:no-unused-expression
     new Angular5Csv(this.dataSource, 'Practice Details', options);
