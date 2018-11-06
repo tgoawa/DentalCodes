@@ -25,9 +25,32 @@ export class PracticeInfo {
 }
 
 export interface PracticeRegionCode {
+  Address: string;
+  City: string;
+  RegionName: string;
+  State: string;
+  ZipCode: string;
   FirstYear: PracticeDetail[];
   SecondYear: PracticeDetail[];
   ThirdYear: PracticeDetail[];
+}
+
+export class Practice {
+  Name: string;
+  RegionName: string;
+  Address: string;
+  City: string;
+  State: string;
+  ZipCode: string;
+
+  constructor(name: string, region: string, address: string, city: string, state: string, zipCode: string) {
+    this.Name = name;
+    this.RegionName = region;
+    this.Address = address;
+    this.City = city;
+    this.State = state;
+    this.ZipCode = zipCode;
+  }
 }
 
 export class PracticeRegionTableDTO {

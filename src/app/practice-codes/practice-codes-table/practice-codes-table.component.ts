@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { PracticeRegionTableDTO } from 'src/app/models/practice-list.model';
+import { PracticeRegionTableDTO, Practice } from 'src/app/models/practice-list.model';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
@@ -11,7 +11,7 @@ import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 })
 export class PracticeCodesTableComponent implements OnChanges {
   @Input() dataSource: PracticeRegionTableDTO[];
-  @Input() title: string;
+  @Input() practiceInformation: Practice;
   firstYear; secondYear; thirdYear: number;
   practiceRegionData: MatTableDataSource<PracticeRegionTableDTO>;
   displayedColumns = [

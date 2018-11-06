@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
-import { PracticeRegionCode, PracticeRegionTableDTO } from '../models/practice-list.model';
+import { PracticeRegionCode, PracticeRegionTableDTO, Practice } from '../models/practice-list.model';
 
 @Component({
   selector: 'app-practice-codes',
@@ -10,11 +10,18 @@ import { PracticeRegionCode, PracticeRegionTableDTO } from '../models/practice-l
 export class PracticeCodesComponent implements OnChanges {
   @Input() dataSource: PracticeRegionCode;
   @Input() title: string;
+  practiceInformation: Practice;
   practiceRegionTableDTO: any[];
   constructor() { }
 
   ngOnChanges() {
     this.createPracticeRegionTableDTO(this.dataSource);
+    this.practiceInformation = new Practice(this.title,
+      this.dataSource.RegionName,
+      this.dataSource.Address,
+      this.dataSource.City,
+      this.dataSource.State,
+      this.dataSource.ZipCode);
   }
 
    private createPracticeRegionTableDTO(practiceRegionCodes: PracticeRegionCode) {
