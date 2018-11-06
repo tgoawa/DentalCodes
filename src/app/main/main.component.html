@@ -1,7 +1,7 @@
 <div>
   <h1>Dental Practice Data</h1>
 </div>
-<div div fxLayout="row" fxLayoutAlign="start start">
+<div div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
   <mat-form-field>
     <mat-select placeholder="Survey Year" (selectionChange)="onYearSelected($event)">
       <mat-option *ngFor="let year of yearList" [value]="year">
@@ -9,7 +9,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-button color="primary" *ngIf="showTable" (click)="onReturnToList()">Return to Practice List</button>
+  <div>
+    <button mat-flat-button color="accent" *ngIf="showTable" (click)="onReturnToList()">Return to Practice List</button>
+  </div>
 </div>
 <div *ngIf="isYearSelected">
   <div *ngIf="showPracticeShowList">
