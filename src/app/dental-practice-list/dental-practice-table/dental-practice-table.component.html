@@ -1,7 +1,12 @@
 <div fxFlex="50">
-  <div>
+  <p>
     <button mat-flat-button color="primary" (click)="exportToCSV()">Export to Excel</button>
-  </div>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Practice Name">
+    </mat-form-field>
+  </p>
   <table mat-table [dataSource]="practiceList" matSort fxFill>
 
     <ng-container matColumnDef="PracticeName">

@@ -14,6 +14,7 @@ import {
   MatSortModule,
   MatButtonModule,
   MatTooltipModule,
+  MatInputModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { PracticeCodesComponent } from './practice-codes/practice-codes.componen
     HttpClientModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,

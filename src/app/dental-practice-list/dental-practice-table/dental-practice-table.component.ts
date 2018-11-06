@@ -13,7 +13,7 @@ export class DentalPracticeTableComponent implements OnChanges {
   @Input() dataSource: PracticeList[];
   @Input() title: string;
   @Output() practiceInfo: EventEmitter<PracticeInfo> = new EventEmitter();
-  practiceList: MatTableDataSource<PracticeList>;
+  practiceList = new MatTableDataSource();
   displayedColumns = [
     'PracticeName',
     'CodeDifference',
@@ -28,6 +28,12 @@ export class DentalPracticeTableComponent implements OnChanges {
     this.practiceList = new MatTableDataSource<PracticeList>(this.dataSource);
     this.practiceList.sort = this.sort;
     this.practiceList.paginator = this.paginator;
+  }
+
+  applyFilter(value: string) {
+    value = value.trim();
+    value = value.toLocaleLowerCase();
+    this.practiceList.filter = value;
   }
 
   onPracticeSelected(practiceId: number, practiceName: string) {
