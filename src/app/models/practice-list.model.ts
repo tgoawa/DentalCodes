@@ -108,4 +108,37 @@ export class PracticeRegionTableDTO {
     this.ThirdSurveyYear = thirdSurveyYear;
     this.EnteredValueDifference = firstYearEnteredValue - firstYearRegionAverage;
   }
+
+}
+
+export class PracticeRegionTableDTOExport {
+  DentalCode: string;
+  CodeDescription: string;
+  FirstYearEnteredValue: number;
+  FirstYearRegionAverage: number;
+  EnteredValueDifference: number;
+  SecondYearEnteredValue: number;
+  SecondYearRegionAverage: number;
+  ThirdYearEnteredValue: number;
+  ThirdYearRegionAverage: number;
+
+  constructor(dentalCode: string,
+    codeDescription: string,
+    firstValue: number,
+    firstRegionAvg: number,
+    difference: number,
+    secondValue: number,
+    secondRegionAvg: number,
+    thirdValue: number,
+    thirdRegionAvg: number) {
+      this.DentalCode = dentalCode;
+      this.CodeDescription = codeDescription;
+      this.FirstYearEnteredValue = firstValue;
+      this.FirstYearRegionAverage = firstRegionAvg;
+      this.EnteredValueDifference = difference;
+      this.SecondYearEnteredValue = secondValue;
+      this.SecondYearRegionAverage = secondRegionAvg;
+      this.ThirdYearEnteredValue = thirdValue;
+      this.ThirdYearRegionAverage = thirdRegionAvg;
+  }
 }

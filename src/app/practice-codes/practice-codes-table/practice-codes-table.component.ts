@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { PracticeRegionTableDTO, Practice } from 'src/app/models/practice-list.model';
+import { PracticeRegionTableDTO, Practice, PracticeRegionTableDTOExport } from 'src/app/models/practice-list.model';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
@@ -49,9 +49,20 @@ export class PracticeCodesTableComponent implements OnChanges {
       useBom: true,
       noDownload: false,
       // tslint:disable-next-line:max-line-length
-      headers: ['Dental Code Id', 'Dental Code', 'Code Description', 'First Year Value', 'First Year Region Avg', 'First Survey Year', 'Second Year Value', 'Second Year Region Avg', 'Second Survey Year', 'Third Year Value', 'Third Year Region Avg', 'Third Survey Year', 'Difference']
+      headers: ['Dental Code', 'Code Description', 'Value ' + this.firstYear, 'Region Average ' + this.firstYear, 'Change Differential', 'Value ' + this.secondYear, 'Region Average ' + this.secondYear, 'Value ' + this.thirdYear, 'Region Average' + this.thirdYear]
     };
     // tslint:disable-next-line:no-unused-expression
-    new Angular5Csv(this.dataSource, 'Practice Details', options);
+    new Angular5Csv(this.setExportData(), 'Practice Details', options);
+  }
+
+  private setExportData(): PracticeRegionTableDTOExport[] {
+    const tempArray = [];
+    for (const object of this.dataSource) {
+      // tslint:disable-next-line:max-line-length
+      tempArray.push(new PracticeRegionTableDTOExport(object.DentalCode, object.CodeDescription, object.FirstYearEnteredValue, object.FirstYearRegionAverage, object.EnteredValueDifference, object.SecondYearEnteredValue, object.SecondYearRegionAverage, object.ThirdYearEnteredValue, object.ThirdYearRegionAverage));
+    }
+
+    return tempArray;
+
   }
 }
