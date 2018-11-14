@@ -16,8 +16,8 @@
     </ng-container>
 
     <ng-container matColumnDef="CodeDifference">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Code Different </th>
-      <td mat-cell *matCellDef="let element"> {{element.CodeDifference}}% </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Code Difference </th>
+      <td mat-cell *matCellDef="let element"> <span [matTooltip]="differenceDescription">{{element.CodeDifference}}%</span></td>
     </ng-container>
 
     <ng-container matColumnDef="ClientId">

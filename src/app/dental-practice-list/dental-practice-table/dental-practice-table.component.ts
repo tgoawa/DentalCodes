@@ -13,6 +13,7 @@ export class DentalPracticeTableComponent implements OnChanges {
   @Input() dataSource: PracticeList[];
   @Input() title: string;
   @Output() practiceInfo: EventEmitter<PracticeInfo> = new EventEmitter();
+  differenceDescription = 'Average of all entered dental codes versus the region';
   practiceList = new MatTableDataSource();
   displayedColumns = [
     'PracticeName',
