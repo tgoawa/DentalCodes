@@ -5,6 +5,18 @@ export interface PracticeList {
   ClientId: number;
 }
 
+export class PracticeListExport {
+  PracticeName: string;
+  CodeDifference: number;
+  ClientId: number;
+
+  constructor(name: string, difference: number, id: number) {
+    this.PracticeName = name;
+    this.CodeDifference = difference;
+    this.ClientId = id;
+  }
+}
+
 export interface PracticeDetail {
   DentalCodeId: number;
   DentalCode: string;

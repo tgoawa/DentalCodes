@@ -1,6 +1,6 @@
 import { Component, OnChanges, ChangeDetectionStrategy, Input, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { PracticeList, PracticeInfo } from 'src/app/models/practice-list.model';
+import { PracticeList, PracticeInfo, PracticeListExport } from 'src/app/models/practice-list.model';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @Component({
@@ -51,10 +51,19 @@ export class DentalPracticeTableComponent implements OnChanges {
       useBom: true,
       noDownload: false,
       // tslint:disable-next-line:max-line-length
-      headers: ['Practice Name', 'Practice Id', 'Code Difference', 'Client Id']
+      headers: ['Practice Name', 'Code Difference', 'Client Id']
     };
     // tslint:disable-next-line:no-unused-expression
-    new Angular5Csv(this.dataSource, 'Practice List', options);
+    new Angular5Csv(this.setExportData(), 'Practice List', options);
+  }
+
+  private setExportData(): PracticeListExport[] {
+    const tempArray = [];
+    for (const object of this.dataSource) {
+      tempArray.push(new PracticeListExport(object.PracticeName, object.CodeDifference, object.ClientId));
+    }
+
+    return tempArray;
   }
 
 }
